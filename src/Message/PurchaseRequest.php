@@ -57,7 +57,7 @@ class PurchaseRequest extends AbstractRequest
         $data['amountf'] = $this->getAmount();
         $data['item_name'] = $this->getDescription();
         $data['cancel_url'] = $this->getCancelUrl();
-        dump($this->getParameters());
+
         return $data;
     }
 

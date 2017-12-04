@@ -6,26 +6,26 @@ use Omnipay\Common\Message\AbstractRequest as OmnipayRequest;
 
 abstract class AbstractRequest extends OmnipayRequest
 {
-    protected $liveMerchantEndpoint = 'https://www.coinpayments.net/index.php';
-    protected $liveApiEndpoint = 'https://www.coinpayments.net/api.php';
+    public $liveMerchantEndpoint = 'https://www.coinpayments.net/index.php';
+    public $liveApiEndpoint = 'https://www.coinpayments.net/api.php';
 
 
-    protected function getMerchantEndpoint()
+    public function getMerchantEndpoint()
     {
         return $this->liveMerchantEndpoint;
     }
 
-	protected function getApiEndpoint()
+	public function getApiEndpoint()
     {
         return $this->liveApiEndpoint;
     }
 
-    protected function getIpnSecret()
+    public function getIpnSecret()
     {
         return $this->getParameter('ipn_secret');
     }
 
-    protected function setIpnSecret($value)
+    public function setIpnSecret($value)
     {
         return $this->setParameter('ipn_secret', $value);
     }
