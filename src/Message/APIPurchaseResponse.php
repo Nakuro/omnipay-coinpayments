@@ -20,12 +20,14 @@ class APIPurchaseResponse extends APIResponse implements RedirectResponseInterfa
 
     public function isRedirect()
     {
-        return false;
+        return isset($this->data['result']) && 'ok' === $this->data['error'];
     }
 
     public function getRedirectUrl()
     {
-        return $this->redirectUrl;
+        if (isset($this->data['result']) && isset($this->data['result']['status_url'])) {
+            return $this->data['result']['status_url'];
+        }
     }
 
     public function getRedirectMethod()
